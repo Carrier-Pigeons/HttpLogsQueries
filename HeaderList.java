@@ -18,6 +18,11 @@ public class HeaderList {
 
         String userAgent = "User-Agent";
         List<String> excludeHeaders = new ArrayList<>(Arrays.asList(userAgent, "Cookie"));
+        
+        // Since the user agent is not stored in the headerlist, we cannot extract
+        // it from the headerlist.
+        // The final headerlist grabs the subarray from two onwards thus
+        // skips the user agent.
         user_agent = extractHeaderNameValue(headers.stream()
         .filter(str -> str.startsWith(userAgent))
         .findFirst()
@@ -28,7 +33,8 @@ public class HeaderList {
             Header h = extractHeaderNameValue(actualHeaders.get(i), i+1); //The headerOrder starts at 1 not zero.
             if(!excludeHeaders.contains(h.headerName)) headerList.add(h);
         }
-        System.out.println(this.user_agent);
+
+        proxy = null != headerList.stream().filter(h -> h.headerName == "Evilginx").findFirst();
     }
 
     private Header extractHeaderNameValue(String input, int headerOrder){
