@@ -25,7 +25,7 @@ public class InsertHeaders {
             // Example data to insert, you can replace this with your data source
             List<String[]> dataToInsert = new ArrayList<>();
             for(HeaderList header: headerList){
-                System.out.println("\n\nnew headerList");
+                
                 for (HeaderList.Header h: header.headerList){
                     if(h.value.length() > 255) System.out.println(h.value.length() +": "+ h.headerName + ": " + h.value);
                     dataToInsert.add(new String[] {h.headerName, header.uid, header.request, "0", header.user_agent, Integer.toString(h.headerOrder), h.value});

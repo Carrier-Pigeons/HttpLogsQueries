@@ -16,20 +16,11 @@ public class LogExtractor {
             String logEntry;
             while ((logEntry = br.readLine()) != null) {
                 headerList.add(new HeaderList(logEntry));
-                // List<String> headersList = extractHeaders(logEntry);
-                
-                // Print the headers for the current log entry
-                // System.out.println("Headers for log entry:");
-                // if(headersList != null) for (String header : headersList) {
-                //     System.out.println(header);
-                // }
-                // System.out.println(); // Print a blank line for separation between log entries
-            }
+             }
             new InsertHeaders().insertHeaders(headerList);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // System.out.println(headerList);
     }
 
 }
