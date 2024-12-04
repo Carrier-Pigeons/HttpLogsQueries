@@ -22,3 +22,7 @@ CREATE TABLE header (
     INDEX idx_proxy_request_header_headerOrder_user_agent_uid_headerValue (proxy, request, header, headerOrder, user_agent, uid, headerValue)
 );
 
+-- The index's columns exceeded the 3072 byte limit until we changed some columns to latin1
+-- By default the columns, (with the exception of uid since it is of type CHAR)
+-- are of type utf8 or something that has 4 bytes per character,
+-- while latin1 has one byte per character.
