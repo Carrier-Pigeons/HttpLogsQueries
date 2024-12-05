@@ -1,4 +1,8 @@
 USAGE:
+This project makes comparisons between proxy and non-proxy http requests in mysql.
+
+Note that this only currently works for evilginx proxies. Every new proxy will need to be manually added to this project. We will need to determine how to parse the logs to find out if it is a proxy or not.
+
 curl -O https://dev.mysql.com/downloads/connector/j/
 sudo apt-get install ./(file downloaded)
 
